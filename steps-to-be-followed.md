@@ -101,3 +101,23 @@ $ kubectl port-forward svc/mlapp-service 5000:5000
 
 # To Delete the Deployments
 $ kubectl delete -f manifests/
+
+###########################################################################################################################
+# USING JENKINS
+###########################################################################################################################
+``` bash
+Job1: 01_build_mlapp_artifacts_and_docker_images
+      Task1:
+       $ python model.py
+
+       Task2:
+       $ docker build -t <<docker-hub-name>>/rentalmlapp .
+       $ docker push <<docker-hub-name>>/rentalmlapp:latest
+
+
+Job2: 02_deploy_mlapp_to_kubernetes
+      Task1: 
+       $ kubectl delete -f manifests/
+      Task2: 
+       $ kubectl apply -f manifests/
+```

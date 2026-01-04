@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: mlapp-container
-        image: ssadcloud/rentalmlapp:latest
+        image: sreekanth9093/rentalmlapp:latest # Replace with your image name
         ports:
         - containerPort: 5000
